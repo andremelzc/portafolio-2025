@@ -1,5 +1,17 @@
+import HomeSection from "@/app/components/sections/HomeSection";
+import ProjectsSection from "@/app/components/sections/ProjectsSection";
+import SkillsSection from "@/app/components/sections/SkillsSection";
+import ContactSection from "@/app/components/sections/ContactSection";
+
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20"></div>
+    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+      <HomeSection />
+      <ProjectsSection />
+      <SkillsSection />
+      <ContactSection />
+    </div>
   );
 }
+
+ 
