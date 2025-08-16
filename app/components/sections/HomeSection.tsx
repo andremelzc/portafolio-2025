@@ -1,6 +1,8 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import Button from "@/app/components/ui/Button";
+import { downloadCV } from "@/app/lib/downloads";
 
 export default function HomeSection() {
   return (
@@ -29,7 +31,7 @@ export default function HomeSection() {
           impacto a través de la tecnología.
         </p>
         <div className="flex gap-4">
-          <Button variant="primary" size="md">
+          <Button variant="primary" size="md" onClick={downloadCV}>
             Descargar CV
           </Button>
           <Button variant="outline" size="md">
