@@ -9,6 +9,10 @@ interface TechTagProps {
 export default function TechTag({ tech, variant }: TechTagProps) {
   const Icon = getTechIcon(tech);
 
+  if (Icon === null) {
+    return null;
+  }
+
   return variant === "badge" ? (
     <span className="inline-flex items-center gap-2 bg-cherry-100 text-cherry-700 rounded-full px-3 py-1 text-sm font-medium">
       {Icon && <Icon className="w-4 h-4" />}
