@@ -3,6 +3,9 @@
 :root {
   --background: var(--color-cream-50);
   --foreground: var(--color-midnight-700);
+  --accent: var(--color-cherry-600);
+  --muted: var(--color-cream-200);
+  --border: var(--color-midnight-300);
 
   /* Cherry */
   --color-cherry-50: #fdf4f4;
@@ -57,6 +60,9 @@
   /* Variables base */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
@@ -113,6 +119,57 @@
   :root {
     --background: var(--color-midnight-900);
     --foreground: var(--color-cream-50);
+    --accent: var(--color-cherry-500);
+    --muted: var(--color-midnight-700);
+    --border: var(--color-midnight-600);
+
+    /* Cherry */
+  --color-cherry-50: #fdf4f4;
+  --color-cherry-100: #f9e1e1;
+  --color-cherry-200: #f4c7c7;
+  --color-cherry-300: #ec9b9b;
+  --color-cherry-400: #e36d6d;
+  --color-cherry-500: #d64545;
+  --color-cherry-600: #b93737;
+  --color-cherry-700: #922c2c;
+  --color-cherry-800: #6b1d1d;
+  --color-cherry-900: #471212;
+
+  /* Deep Red */
+  --color-deepred-50: #fbf6f6;
+  --color-deepred-100: #f4e2e2;
+  --color-deepred-200: #e9c6c6;
+  --color-deepred-300: #d89999;
+  --color-deepred-400: #c66c6c;
+  --color-deepred-500: #a53636;
+  --color-deepred-600: #832a2a;
+  --color-deepred-700: #661f1f;
+  --color-deepred-800: #4b1515;
+  --color-deepred-900: #2e0d0d;
+
+  /* Midnight */
+  --color-midnight-50: #f5f5f5;
+  --color-midnight-100: #e5e5e5;
+  --color-midnight-200: #cccccc;
+  --color-midnight-300: #999999;
+  --color-midnight-400: #666666;
+  --color-midnight-500: #333333;
+  --color-midnight-600: #1f1f1f;
+  --color-midnight-700: #191919;
+  --color-midnight-800: #141414;
+  --color-midnight-900: #0b0b0b;
+
+  /* Cream */
+  --color-cream-50: #fffcf9;
+  --color-cream-100: #fff8f0;
+  --color-cream-200: #fdf0e3;
+  --color-cream-300: #fbe5cc;
+  --color-cream-400: #f8d7ad;
+  --color-cream-500: #f4c88d;
+  --color-cream-600: #e3af6a;
+  --color-cream-700: #c78f4d;
+  --color-cream-800: #9e6e38;
+  --color-cream-900: #6b4b26;
   }
 }
 
