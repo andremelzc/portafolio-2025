@@ -2,10 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
+import { useAutoHide } from "@/app/hooks/useAutoHide";
 import { useActiveSection } from "@/app/hooks/useActiveSection";
 
 export default function Navbar() {
   const activeSection = useActiveSection();
+  const isVisible = useAutoHide(3000);
 
   const getLinkClass = (sectionId: string) => {
     return activeSection === sectionId
@@ -14,7 +16,11 @@ export default function Navbar() {
   };
 
   return (
-    <div className="fixed top-8  left-0 right-0 z-50 flex justify-center">
+    <div
+      className={`fixed top-8 left-0 right-0 z-50 flex justify-center ${
+        isVisible ? "fade-in" : "fade-out"
+      }`}
+    >
       <nav className="rounded-full border">
         <ul className="flex items-center gap-2 px-6 py-4">
           <li>
