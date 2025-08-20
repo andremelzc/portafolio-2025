@@ -14,7 +14,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="fixed top-16  left-0 right-0 z-50 flex justify-center">
+    <div className="fixed top-8  left-0 right-0 z-50 flex justify-center">
       <nav className="rounded-full border">
         <ul className="flex items-center gap-2 px-6 py-4">
           <li>

@@ -57,10 +57,10 @@ export default function Button({
         }[size]
       : undefined;
   const sizeClasses = {
-    sm: `px-3 ${verticalPad || "py-1.5"} text-sm`,
-    md: `px-4 ${verticalPad || "py-2"} text-base`,
-    lg: `px-6 ${verticalPad || "py-3"} text-lg`,
-    xl: `px-8 ${verticalPad || "py-6"} text-xl`,
+    sm: `px-4 ${verticalPad || "py-2"} text-sm`,
+    md: `px-6 ${verticalPad || "py-3"} text-base`,
+    lg: `px-8 ${verticalPad || "py-4"} text-lg`,
+    xl: `px-10 ${verticalPad || "py-6"} text-xl`,
   };
 
   const disabledClasses = disabled ? "opacity-50 cursor-not-allowed" : "";
