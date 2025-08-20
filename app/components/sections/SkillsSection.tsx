@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@/app/components/ui/Button";
+import SkillGrid from "@/app/components/skills/SkillGrid";
 
 export default function SkillsSection() {
   return (
@@ -16,6 +17,9 @@ export default function SkillsSection() {
             <Button variant="outline">Frontend</Button>
             <Button variant="outline">Backend y DB</Button>
             <Button variant="outline">Herramientas y Gestión</Button>
+          </div>
+          <div className="w-full max-w-xl mx-auto bg-cream-100 rounded-xl p-2">
+            <SkillGrid skills={["React", "Node.js", "TypeScript", "Tailwind CSS"]} />
           </div>
         </div>
       </div>

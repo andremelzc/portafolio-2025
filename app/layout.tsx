@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden`}>
       <body className="antialiased">
         <Navbar />
         <main className="pt-32 mx-auto max-w-5xl">{children}</main>
