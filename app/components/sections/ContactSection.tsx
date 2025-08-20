@@ -1,4 +1,6 @@
 import React from "react";
+import { BsLinkedin, BsGithub } from "react-icons/bs";
+import { FiMail } from "react-icons/fi";
 import Button from "@/app/components/ui/Button";
 
 export default function ContactSection() {
@@ -11,9 +13,30 @@ export default function ContactSection() {
             <h2 className="text-xl">Escríbeme si quieres trabajar conmigo</h2>
           </div>
           <div className="flex flex-col gap-4 justify-center">
-            <Button variant="outline">Frontend</Button>
-            <Button variant="outline">Backend y DB</Button>
-            <Button variant="outline">Herramientas y Gestión</Button>
+            <Button
+              variant="primary"
+              icon={<BsLinkedin size={40} />}
+              iconPosition="top"
+              rounded="full"
+            >
+              Linkedin
+            </Button>
+            <Button
+              variant="primary"
+              icon={<BsGithub size={40} />}
+              iconPosition="top"
+              rounded="full"
+            >
+              Github
+            </Button>
+            <Button
+              variant="primary"
+              icon={<FiMail size={40} />}
+              iconPosition="top"
+              rounded="full"
+            >
+              andre050719mc@gmail.com
+            </Button>
           </div>
         </div>
       </div>
