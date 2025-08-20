@@ -5,6 +5,17 @@ import Button from "@/app/components/ui/Button";
 import { downloadCV } from "@/app/lib/downloads";
 
 export default function HomeSection() {
+  // Función para scroll suave hacia contacto
+  const scrollToContact = () => {
+    const element = document.getElementById('contacto');
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden -mt-10">
       <div className="flex flex-col gap-12 text-center items-center">
@@ -87,6 +98,7 @@ export default function HomeSection() {
                 <Button 
                   variant="outline" 
                   size="md"
+                  onClick={scrollToContact}
                   icon={
                     <svg 
                       className="w-5 h-5" 

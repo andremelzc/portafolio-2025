@@ -1,6 +1,23 @@
 @import "tailwindcss";
 @import "keen-slider/keen-slider.min.css";
 
+/* Scroll suave para toda la aplicación */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respeta las preferencias de movimiento del usuario */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Offset para compensar la navbar fija */
+section[id] {
+  scroll-margin-top: 5rem; /* 80px para compensar navbar */
+}
+
 :root {
   --background: var(--color-cream-50);
   --foreground: var(--color-midnight-700);
