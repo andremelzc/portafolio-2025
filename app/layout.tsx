@@ -32,7 +32,7 @@ export default function RootLayout({
     >
       <body className="antialiased">
         <Navbar />
-        <main className="pt-12 mx-auto max-w-5xl">{children}</main>
+        <main className="mx-auto max-w-7xl">{children}</main>
         <Divisor />
         <Footer />
       </body>
