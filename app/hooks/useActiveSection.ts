@@ -15,8 +15,8 @@ export function useActiveSection() {
         });
       },
       {
-        threshold: 0.6, // 60% de la sección debe estar visible
-        rootMargin: "-20% 0px -20% 0px", // Ajusta cuándo se considera "activa"
+        threshold: 0.4, // Solo necesita 10% visible
+        rootMargin: "0px 0px -50% 0px", // Detecta cuando está en la mitad superior
       }
     );
 
