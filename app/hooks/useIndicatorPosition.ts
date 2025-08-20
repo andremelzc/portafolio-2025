@@ -6,7 +6,10 @@ interface IndicatorStyle {
   opacity: number;
 }
 
-export const useIndicatorPosition = (activeSection: string | null) => {
+export const useIndicatorPosition = (
+  activeSection: string | null,
+  isExpanded?: boolean // Cambiar nombre para mayor claridad
+) => {
   const navRef = useRef<HTMLElement>(null);
   const linksRef = useRef<Record<string, HTMLAnchorElement | null>>({});
   const [indicatorStyle, setIndicatorStyle] = useState<IndicatorStyle>({
@@ -15,7 +18,7 @@ export const useIndicatorPosition = (activeSection: string | null) => {
     opacity: 0,
   });
 
-  // Calcular posición del indicador basado en el elemento real
+  // Calcular posición del indicador considerando la escala
   useEffect(() => {
     if (!activeSection || !linksRef.current[activeSection]) {
       setIndicatorStyle({ left: 0, width: 0, opacity: 0 });
@@ -26,11 +29,22 @@ export const useIndicatorPosition = (activeSection: string | null) => {
     const navElement = navRef.current;
 
     if (activeLink && navElement) {
-      const navRect = navElement.getBoundingClientRect();
-      const linkRect = activeLink.getBoundingClientRect();
+      // Obtener la escala actual del nav
+      const navStyle = window.getComputedStyle(navElement);
+      const transform = navStyle.transform;
+      
+      let scale = 1;
+      if (transform && transform !== 'none') {
+        const matrix = transform.match(/matrix.*\((.+)\)/);
+        if (matrix) {
+          const values = matrix[1].split(', ');
+          scale = parseFloat(values[0]); // Primer valor es scaleX
+        }
+      }
 
-      const left = linkRect.left - navRect.left;
-      const width = linkRect.width;
+      // Calcular posiciones usando offsetLeft/offsetWidth (más preciso para elementos escalados)
+      const left = activeLink.offsetLeft;
+      const width = activeLink.offsetWidth;
 
       setIndicatorStyle({
         left: left,
@@ -38,7 +52,7 @@ export const useIndicatorPosition = (activeSection: string | null) => {
         opacity: 1,
       });
     }
-  }, [activeSection]);
+  }, [activeSection, isExpanded]); // Cambiar isScrolled por isExpanded
 
   // Función helper para asignar refs
   const setLinkRef = (sectionId: string) => (el: HTMLAnchorElement | null) => {
