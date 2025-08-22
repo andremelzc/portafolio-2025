@@ -5,7 +5,7 @@ import { sampleProjects } from "@/app/data/projects";
 
 export default function ProjectsSection() {
   return (
-    <section id="proyectos">
+    <section id="proyectos" className="min-h-screen overflow-hidden">
       <div className="flex flex-col gap-16 text-center items-center">
         <div className="flex flex-col gap-8">
           <div className="relative flex flex-col gap-4">

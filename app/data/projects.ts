@@ -21,6 +21,8 @@ export const sampleProjects: Project[] = [
     demoUrl: "https://dashboard-demo.com",
     codeUrl: "https://github.com/andremelzc/ecommerce-dashboard",
     category: "Full Stack",
+    role: "Full Stack",
+    teamSize: "Solo",
   },
   {
     id: "2",

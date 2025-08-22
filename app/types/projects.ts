@@ -9,6 +9,8 @@ export interface Project {
   demoUrl?: string;
   codeUrl?: string;
   category: string;
+  role?: string;
+  teamSize?: string;
 }
 
 export interface ProjectCardProps {

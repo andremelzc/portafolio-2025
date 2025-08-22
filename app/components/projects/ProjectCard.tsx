@@ -1,9 +1,15 @@
 import React from "react";
 import Image from "next/image";
 import { ProjectCardProps } from "@/app/types/projects";
-import { HiOutlineExternalLink, HiOutlineCode } from "react-icons/hi";
+import {
+  HiOutlineExternalLink,
+  HiOutlineCode,
+  HiOutlineUser,
+  HiOutlineUserGroup,
+} from "react-icons/hi";
 import TechTag from "@/app/components/ui/TechTag";
 import Button from "../ui/Button";
+import Tooltip from "../ui/Tooltip";
 
 export default function ProjectCard({
   project: {
@@ -16,6 +22,8 @@ export default function ProjectCard({
     demoUrl,
     codeUrl,
     category,
+    role,
+    teamSize,
   },
 }: ProjectCardProps) {
   return (
@@ -40,9 +48,21 @@ export default function ProjectCard({
               </div>
             )}
           </div>
-          {/* Role Badge */}
+          {/* Teamsize Badge */}
           <div className="bg-midnight-700/60 backdrop-blur-sm border border-midnight-600/50 text-midnight-200 text-xs font-medium px-3 py-1.5 rounded-full shadow-lg">
-            Solo {/* Cambiar por {role} cuando tengas la prop */}
+            <Tooltip content={teamSize}>
+              <span className="inline-flex">
+                {teamSize === "Solo" ? (
+                  <>
+                    <HiOutlineUser size={16} />
+                  </>
+                ) : (
+                  <>
+                    <HiOutlineUserGroup size={16} />
+                  </>
+                )}
+              </span>
+            </Tooltip>
           </div>
         </div>
 
@@ -125,12 +145,14 @@ export default function ProjectCard({
                 </Button>
               )}
             </div>
-            
+
             {/* Indicador de role a la derecha */}
-            <div className="flex items-center gap-2 text-xs text-midnight-400">
-              <div className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
-              <span className="font-medium">{category}</span>
-            </div>
+            {role ? (
+              <div className="flex items-center gap-2 text-xs text-midnight-400">
+                <div className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
+                <span className="font-medium">{role}</span>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
