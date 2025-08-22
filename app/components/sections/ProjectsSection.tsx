@@ -8,6 +8,7 @@ export default function ProjectsSection() {
     <section id="proyectos" className="min-h-screen overflow-hidden">
       <div className="flex flex-col gap-16 text-center items-center">
         <div className="flex flex-col gap-8">
+          {/* Header */}
           <div className="relative flex flex-col gap-4">
             {/* Resplandor detrás del título */}
             <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-80 h-20 bg-gradient-to-r from-transparent via-accent/15 to-transparent blur-2xl opacity-80" />
