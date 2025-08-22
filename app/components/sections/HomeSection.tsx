@@ -65,7 +65,7 @@ export default function HomeSection() {
                 en la Universidad Nacional Mayor de San Marcos, especializado en
                 el desarrollo de aplicaciones web modernas.
               </p>
-              <div className="mt-4 h-px w-16 bg-accent/30 mx-auto" />
+              <div className="h-px w-24 bg-gradient-to-r from-transparent via-accent/40 to-transparent mx-auto mt-4" />
               <p className="mt-4 text-foreground/70">
                 Enfocado en crear impacto a través de la tecnología y participar
                 en proyectos innovadores.

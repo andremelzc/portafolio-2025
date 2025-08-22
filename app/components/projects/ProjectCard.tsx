@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import { ProjectCardProps } from "@/app/types/projects";
+import { HiOutlineExternalLink, HiOutlineCode } from "react-icons/hi";
 import TechTag from "@/app/components/ui/TechTag";
+import Button from "../ui/Button";
 
 export default function ProjectCard({
   project: {
@@ -16,58 +18,120 @@ export default function ProjectCard({
     category,
   },
 }: ProjectCardProps) {
-  
   return (
-    <div className="bg-foreground rounded-lg text-background flex flex-col w-full">
-      {/* Tecnologías siempre arriba */}
-      <div className="relative flex gap-2 p-4 flex-wrap">
-        {(featured ? technologies : technologies.slice(0, 3)).map((tech) => (
-          <TechTag key={tech} tech={tech} variant="badge" />
-        ))}
-        {!featured && technologies.length > 3 && (
-          <div className="absolute top-4 right-4 bg-cherry-100 text-cherry-600 text-xs font-medium px-2 py-1 rounded-full border border-cherry-200">
-            +{technologies.length - 3}
-          </div>
-        )}
-      </div>
+    <div className="group relative">
+      <div className="relative bg-gradient-to-br from-midnight-800 via-midnight-900 to-midnight-800 border border-midnight-600/50 rounded-3xl shadow-2xl text-background flex flex-col w-full hover:shadow-3xl transition-all duration-300 overflow-hidden">
+        {/* Efectos internos sutiles */}
+        <div className="absolute inset-0 bg-gradient-to-br from-foreground/10 via-transparent to-foreground/5 rounded-3xl pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-midnight-500/40 to-transparent" />
 
-      {/* Texto siempre en la misma posición */}
-      <div className="px-4 text-left">
-        <h3 className="text-xl">{title}</h3>
-        <p className={`${featured ? 'text-md' : 'text-sm opacity-80'}`}>{description}</p>
-      </div>
-
-      {/* Contenedor de imágenes - misma estructura, diferente intensidad */}
-      <div className={`flex justify-center items-center ${featured ? 'p-8 pb-16' : 'p-4 pb-8'}`}>
-        <div className={`relative ${featured ? 'w-72 h-40' : 'w-64 h-32'}`}>
-          
-          {/* Imagen principal - siempre presente */}
-          <div className={`absolute top-0 w-full h-full hover:scale-105 transition-transform duration-300 ${
-            featured ? 'transform -translate-x-1/4' : ''
-          }`}>
-            <Image
-              src="/test.png"
-              alt="Imagen principal"
-              fill
-              className="object-cover rounded-lg"
-            />
-            {/* Overlay solo en featured */}
-            {featured && (
-              <div className="absolute inset-0 bg-background opacity-70 rounded-lg pointer-events-none"></div>
+        {/* Header */}
+        <div className="relative flex justify-between items-center p-6 pb-4">
+          {/* Tecnologías */}
+          <div className="flex gap-2 flex-wrap">
+            {(featured ? technologies : technologies.slice(0, 3)).map(
+              (tech) => (
+                <TechTag key={tech} tech={tech} variant="badge" />
+              )
+            )}
+            {!featured && technologies.length > 3 && (
+              <div className="bg-midnight-700/60 backdrop-blur-sm text-midnight-200 text-xs font-medium px-3 py-1.5 rounded-full border border-midnight-600/50">
+                +{technologies.length - 3}
+              </div>
             )}
           </div>
+          {/* Role Badge */}
+          <div className="bg-midnight-700/60 backdrop-blur-sm border border-midnight-600/50 text-midnight-200 text-xs font-medium px-3 py-1.5 rounded-full shadow-lg">
+            Solo {/* Cambiar por {role} cuando tengas la prop */}
+          </div>
+        </div>
 
-          {/* Imagen secundaria - solo en featured */}
-          {featured && (
-            <div className="absolute top-0 transform translate-x-1/4 translate-y-1/4 w-full h-full hover:scale-105 transition-transform duration-300">
+        {/* Texto siempre en la misma posición */}
+        <div className="px-6 text-left">
+          <h3 className="text-2xl font-bold text-foreground">{title}</h3>
+          <p
+            className={`${
+              featured ? "text-lg" : "text-base opacity-80"
+            } leading-relaxed text-foreground/80`}
+          >
+            {description}
+          </p>
+        </div>
+
+        {/* Contenedor de imágenes - misma estructura, diferente intensidad */}
+        <div
+          className={`flex justify-center items-center ${
+            featured ? "p-8 pb-16" : "p-4 pb-8"
+          }`}
+        >
+          <div className={`relative ${featured ? "w-72 h-40" : "w-64 h-32"}`}>
+            {/* Imagen principal - siempre presente */}
+            <div
+              className={`absolute top-0 w-full h-full hover:scale-105 transition-transform duration-300 ${
+                featured ? "transform -translate-x-1/4" : ""
+              }`}
+            >
               <Image
                 src="/test.png"
-                alt="Imagen secundaria"
+                alt="Imagen principal"
                 fill
-                className="object-cover rounded-lg shadow-lg"
+                className="object-cover rounded-lg"
               />
+              {/* Overlay solo en featured */}
+              {featured && (
+                <div className="absolute inset-0 bg-background opacity-70 rounded-lg pointer-events-none"></div>
+              )}
             </div>
-          )}
+
+            {/* Imagen secundaria - solo en featured */}
+            {featured && (
+              <div className="absolute top-0 transform translate-x-1/4 translate-y-1/4 w-full h-full hover:scale-105 transition-transform duration-300">
+                <Image
+                  src="/test.png"
+                  alt="Imagen secundaria"
+                  fill
+                  className="object-cover rounded-lg shadow-lg"
+                />
+              </div>
+            )}
+          </div>
+        </div>
+        {/* Footer */}
+        <div className="relative px-6 pb-6">
+          {/* Separador */}
+          <div className="h-px bg-gradient-to-r from-transparent via-midnight-600/40 to-transparent mb-4" />
+          {/* Botones e Indicador */}
+          <div className="flex justify-between items-center">
+            {/* Botones a la izquierda */}
+            <div className="flex gap-3">
+              {demoUrl && (
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  icon={<HiOutlineExternalLink />}
+                  iconPosition="left"
+                >
+                  Ver Demo
+                </Button>
+              )}
+              {codeUrl && (
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  icon={<HiOutlineCode />}
+                  iconPosition="left"
+                >
+                  Ver Código
+                </Button>
+              )}
+            </div>
+            
+            {/* Indicador de role a la derecha */}
+            <div className="flex items-center gap-2 text-xs text-midnight-400">
+              <div className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
+              <span className="font-medium">{category}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
