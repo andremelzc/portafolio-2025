@@ -5,50 +5,53 @@ import Button from "@/app/components/ui/Button";
 
 export default function ContactSection() {
   return (
-    <section id="contacto" className="">
-      <div className="flex flex-col gap-16 text-center items-center">
-        <div className="flex flex-col gap-8">
+    <section id="contacto" className="px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col gap-12 sm:gap-14 md:gap-16 lg:gap-12 xl:gap-10 text-center items-center max-w-7xl mx-auto">
+        <div className="flex flex-col gap-6 sm:gap-8 lg:gap-6">
           {/* Header */}
-          <div className="relative flex flex-col gap-4">
+          <div className="relative flex flex-col gap-3 sm:gap-4 lg:gap-3">
             {/* Resplandor detrás del título */}
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-80 h-20 bg-gradient-to-r from-transparent via-accent/15 to-transparent blur-2xl opacity-80" />
+            <div className="absolute -top-2 sm:-top-3 md:-top-4 left-1/2 transform -translate-x-1/2 w-60 sm:w-72 md:w-80 lg:w-72 h-12 sm:h-16 md:h-20 lg:h-16 bg-gradient-to-r from-transparent via-accent/15 to-transparent blur-2xl opacity-80" />
             {/* Título */}
-            <h1 className="text-6xl font-semibold">Contacto</h1>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl font-semibold">Contacto</h1>
             {/* Divisor */}
-            <div className="h-px w-24 bg-gradient-to-r from-transparent via-accent/40 to-transparent mx-auto" />
+            <div className="h-px w-16 sm:w-20 md:w-24 lg:w-20 bg-gradient-to-r from-transparent via-accent/40 to-transparent mx-auto" />
             {/* Subtítulo con efecto de cristal de fondo */}
             <div className="relative inline-block mx-auto">
-              <div className="absolute -inset-2 bg-gradient-to-r from-transparent via-background/20 to-transparent rounded-lg blur-sm" />
-              <h2 className="relative text-xl text-foreground/85 font-light tracking-wide px-4 py-1 backdrop-blur-sm bg-background/10 rounded-lg border border-border/5">
+              <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-transparent via-background/20 to-transparent rounded-lg blur-sm" />
+              <h2 className="relative text-base sm:text-lg md:text-xl lg:text-2xl xl:text-xl text-foreground/85 font-light tracking-wide px-3 sm:px-4 py-1 backdrop-blur-sm bg-background/10 rounded-lg border border-border/5">
                 Escríbeme si quieres trabajar conmigo
               </h2>
             </div>
           </div>
           {/* Botones de contacto - sin contenedor glassmorphism */}
-          <div className="flex flex-col gap-8 justify-center">
+          <div className="flex flex-col gap-4 sm:gap-6 md:gap-8 lg:gap-6 justify-center items-center max-w-lg mx-auto">
             <Button
               variant="primary"
-              icon={<BsLinkedin size={40} />}
+              icon={<BsLinkedin className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />}
               iconPosition="top"
               rounded="full"
+              className="w-full"
             >
-              Linkedin
+              <span className="text-sm sm:text-base">Linkedin</span>
             </Button>
             <Button
               variant="primary"
-              icon={<BsGithub size={40} />}
+              icon={<BsGithub className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />}
               iconPosition="top"
               rounded="full"
+              className="w-full"
             >
-              Github
+              <span className="text-sm sm:text-base">Github</span>
             </Button>
             <Button
               variant="primary"
-              icon={<FiMail size={40} />}
+              icon={<FiMail className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />}
               iconPosition="top"
               rounded="full"
+              className="w-full"
             >
-              andre050719mc@gmail.com
+              <span className="text-xs sm:text-sm md:text-base">andre050719mc@gmail.com</span>
             </Button>
           </div>
         </div>
