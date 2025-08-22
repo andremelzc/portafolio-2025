@@ -5,7 +5,7 @@ import { sampleProjects } from "@/app/data/projects";
 
 export default function ProjectsSection() {
   return (
-    <section id="proyectos" className="min-h-screen overflow-hidden">
+    <section id="proyectos" className="min-h-screen">
       <div className="flex flex-col gap-16 text-center items-center">
         <div className="flex flex-col gap-8">
           {/* Header */}
@@ -29,7 +29,7 @@ export default function ProjectsSection() {
             {/* Resplandor de fondo para los filtros */}
             <div className="absolute -inset-3 bg-gradient-to-r from-accent/5 via-cherry-300/5 to-accent/5 rounded-2xl blur-xl opacity-70" />
 
-            <div className="relative backdrop-blur-md bg-background/20 border border-border/15 rounded-2xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 group">
+        
               {/* Borde superior brillante */}
               <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-60" />
 
@@ -41,7 +41,7 @@ export default function ProjectsSection() {
                 <Button variant="outline">Desarrollo móvil</Button>
                 <Button variant="outline">Otros</Button>
               </div>
-            </div>
+           
           </div>
           <ProjectGrid projects={sampleProjects} />
         </div>
