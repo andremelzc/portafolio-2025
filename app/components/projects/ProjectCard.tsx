@@ -27,8 +27,8 @@ export default function ProjectCard({
   },
 }: ProjectCardProps) {
   return (
-    <div className="group relative">
-      <div className="relative bg-gradient-to-br from-midnight-800 via-midnight-900 to-midnight-800 border border-midnight-600/50 rounded-3xl shadow-2xl text-background flex flex-col w-full hover:shadow-3xl transition-all duration-300">
+    <div className="group relative h-full">
+      <div className="relative bg-gradient-to-br from-midnight-800 via-midnight-900 to-midnight-800 border border-midnight-600/50 rounded-3xl shadow-2xl text-background flex flex-col w-full h-full hover:shadow-3xl transition-all duration-300">
         {/* Efectos internos sutiles */}
         <div className="absolute inset-0 bg-gradient-to-br from-foreground/10 via-transparent to-foreground/5 rounded-3xl pointer-events-none" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-midnight-500/40 to-transparent" />
@@ -67,22 +67,26 @@ export default function ProjectCard({
         </div>
 
         {/* Texto siempre en la misma posición */}
-        <div className="px-6 text-left">
-          <h3 className="text-2xl font-bold text-foreground">{title}</h3>
+        <div className="px-6 text-left flex-shrink-0 min-h-[120px] flex flex-col justify-center">
+          <h3 className="text-2xl font-bold text-foreground line-clamp-2">
+            {title}
+          </h3>
           <p
             className={`${
-              featured ? "text-lg" : "text-base opacity-80"
-            } leading-relaxed text-foreground/80`}
+              featured
+                ? "text-lg line-clamp-4"
+                : "text-base opacity-80 line-clamp-3"
+            } leading-relaxed text-foreground/80 mt-2`}
           >
             {description}
           </p>
         </div>
 
-        {/* Contenedor de imágenes - misma estructura, diferente intensidad */}
+        {/* Contenedor de imágenes - con altura controlada */}
         <div
           className={`flex justify-center items-center ${
-            featured ? "p-8 pb-16" : "p-4 pb-8"
-          }`}
+            featured ? "min-h-[200px] max-h-[240px]" : "min-h-[160px] max-h-[200px]"
+          } ${featured ? "p-8 pb-6" : "p-4 pb-4"}`}
         >
           <div className={`relative ${featured ? "w-72 h-40" : "w-64 h-32"}`}>
             {/* Imagen principal - siempre presente */}
@@ -116,10 +120,14 @@ export default function ProjectCard({
             )}
           </div>
         </div>
+        
+        {/* Spacer flexible para distribuir espacio restante */}
+        <div className="flex-grow min-h-[20px]"></div>
+        
         {/* Footer */}
-        <div className="relative px-6 pb-6">
+        <div className="relative px-6 pb-6 flex-shrink-0 mt-8">
           {/* Separador */}
-          <div className="h-px bg-gradient-to-r from-transparent via-midnight-600/40 to-transparent mb-4" />
+          <div className="h-px bg-gradient-to-r from-transparent via-midnight-600/40 to-transparent mb-6" />
           {/* Botones e Indicador */}
           <div className="flex justify-between items-center">
             {/* Botones a la izquierda */}
