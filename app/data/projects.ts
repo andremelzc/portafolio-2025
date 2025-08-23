@@ -4,11 +4,11 @@ export const sampleProjects: Project[] = [
   // Proyectos Featured
   {
     id: "1",
-    title: "E-Commerce Dashboard",
+    title: "TechStore - E-Commerce Platform",
     description:
-      "Dashboard completo para gestión de tienda online con análisis en tiempo real, gestión de inventario y sistema de órdenes. Incluye gráficos interactivos y notificaciones push.",
-    primaryImage: "/projects/dashboard-main.jpg",
-    secondaryImage: "/projects/dashboard-mobile.jpg",
+      "Plataforma de e-commerce especializada en productos tecnológicos con catálogo de componentes de PC, periféricos y gadgets. Incluye sistema de comparación de productos, filtros avanzados, carrito persistente, pasarela de pagos integrada y panel administrativo para gestión de inventario y órdenes.",
+    primaryImage: "/projects/techstore-main.jpg",
+    secondaryImage: "/projects/techstore-admin.jpg",
     featured: true,
     technologies: [
       "Next.js",
@@ -16,12 +16,13 @@ export const sampleProjects: Project[] = [
       "Tailwind CSS",
       "Prisma",
       "PostgreSQL",
-      "Chart.js",
+      "Stripe",
+      "NextAuth.js",
     ],
-    demoUrl: "https://dashboard-demo.com",
-    codeUrl: "https://github.com/andremelzc/ecommerce-dashboard",
+    demoUrl: "https://techstore-demo.andremelzc.dev",
+    codeUrl: "https://github.com/andremelzc/techstore-ecommerce",
     category: "Full Stack",
-    role: "Full Stack",
+    role: "Full Stack Developer",
     teamSize: "Solo",
   },
   {
