@@ -7,9 +7,7 @@ export default function Home() {
   return (
     <div className="font-sans flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 gap-32 sm:p-20">
       <HomeSection />
-      <div className="mt-10">
-        <ProjectsSection />
-      </div>
+      <ProjectsSection />
       <SkillsSection />
       <ContactSection />
     </div>

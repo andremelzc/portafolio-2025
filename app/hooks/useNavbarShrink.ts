@@ -59,7 +59,7 @@ export function useNavbarShrink(options: NavbarShrinkOptions = {}) {
   const isExpanded = !isScrolled || isHovered;
 
   const getContainerClasses = () => ({
-    position: isExpanded ? 'top-6' : 'top-2',
+    position: isExpanded ? 'top-12' : 'top-6',
     transition: 'transition-all duration-700 ease-out',
   });
 
