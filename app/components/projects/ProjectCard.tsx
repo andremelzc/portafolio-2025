@@ -210,26 +210,36 @@ export default function ProjectCard({
             {/* Botones a la izquierda */}
             <div className="flex gap-3">
               {demoUrl && (
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  icon={<HiOutlineExternalLink />}
-                  iconPosition="left"
-                  onClick={() => goToUrl(demoUrl)}
+                <a
+                  href={demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Ver Demo
-                </Button>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    icon={<HiOutlineExternalLink />}
+                    iconPosition="left"
+                  >
+                    Ver Demo
+                  </Button>
+                </a>
               )}
               {codeUrl && (
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  icon={<HiOutlineCode />}
-                  iconPosition="left"
-                  onClick={() => goToUrl(codeUrl)}
+                <a
+                  href={codeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Ver Código
-                </Button>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    icon={<HiOutlineCode />}
+                    iconPosition="left"
+                  >
+                    Ver Código
+                  </Button>
+                </a>
               )}
             </div>
 
