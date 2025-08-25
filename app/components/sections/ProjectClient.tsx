@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Button from "@/app/components/ui/Button";
 import ProjectGrid from "@/app/components/projects/ProjectGrid";
+import ProjectGridSkeleton from "@/app/components/projects/ProjectGridSkeleton";
 import { Project, ProjectCategory } from "@/app/types/projects";
 import { getProjectsByCategory } from "@/app/lib/sanity";
 
@@ -89,10 +90,12 @@ export default function ProjectClient({ initialProjects }: ProjectClientProps) {
       </div>
 
       {/* Grid de proyectos */}
-      <div
-        className={`transition-opacity duration-300 ${loading ? "opacity-50" : "opacity-100"}`}
-      >
-        <ProjectGrid projects={projects} />
+      <div className="transition-all duration-300">
+        {loading ? (
+          <ProjectGridSkeleton count={4} featuredCount={2} />
+        ) : (
+          <ProjectGrid projects={projects} />
+        )}
       </div>
     </>
   );
