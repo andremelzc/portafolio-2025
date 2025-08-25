@@ -33,11 +33,12 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
               {regularProjects.length % 2 === 1 && <ComingSoonCard />}
             </div>
             {/* Botón "Ver más proyectos" solo si hay 4 regulares */}
-            {regularProjects.length === 1 && (
+            {/* ----- DESCOMENTAR CUANDO TENGA MÁS PROYECTOS Y CUANDO /PROYECTOS ESTÉ TERMINADO 
+            regularProjects.length === 4 && (
               <div className="flex justify-center mt-16">
                 <Button>Ver más proyectos</Button>
               </div>
-            )}
+            )*/}
           </div>
         </>
       ) : (

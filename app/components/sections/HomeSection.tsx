@@ -3,21 +3,14 @@ import React from "react";
 import Image from "next/image";
 import Button from "@/app/components/ui/Button";
 import { downloadCV } from "@/app/lib/downloads";
+import { scrollToContact } from "@/app/lib/utils";
 
 export default function HomeSection() {
-  // Función para scroll suave hacia contacto
-  const scrollToContact = () => {
-    const element = document.getElementById('contacto');
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
-
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden -mt-10 px-4 sm:px-6 lg:px-8">
+    <section
+      id="home"
+      className="relative h-screen flex items-center justify-center overflow-hidden -mt-10 px-4 sm:px-6 lg:px-8"
+    >
       <div className="flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-8 xl:gap-6 text-center items-center max-w-6xl mx-auto w-full">
         {/* Header */}
         <div className="flex flex-col gap-4 sm:gap-6 lg:gap-4">
@@ -74,22 +67,22 @@ export default function HomeSection() {
               </p>
               {/* Botones dentro del contenedor */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-3 justify-center mt-6 sm:mt-8 lg:mt-5">
-                <Button 
-                  variant="primary" 
-                  size="md" 
+                <Button
+                  variant="primary"
+                  size="md"
                   onClick={downloadCV}
                   icon={
-                    <svg 
-                      className="w-4 h-4 sm:w-5 sm:h-5" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-4 h-4 sm:w-5 sm:h-5"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        strokeWidth={2} 
-                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                       />
                     </svg>
                   }
@@ -97,22 +90,22 @@ export default function HomeSection() {
                 >
                   Descargar CV
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   size="md"
                   onClick={scrollToContact}
                   icon={
-                    <svg 
-                      className="w-4 h-4 sm:w-5 sm:h-5" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-4 h-4 sm:w-5 sm:h-5"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        strokeWidth={2} 
-                        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" 
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                       />
                     </svg>
                   }
