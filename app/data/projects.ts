@@ -21,7 +21,7 @@ export const sampleProjects: Project[] = [
     ],
     demoUrl: "https://techstore-demo.andremelzc.dev",
     codeUrl: "https://github.com/andremelzc/techstore-ecommerce",
-    category: "Full Stack",
+    category: "Desarrollo Web",
     role: "Full Stack Developer",
     teamSize: "Solo",
   },
@@ -43,7 +43,7 @@ export const sampleProjects: Project[] = [
     ],
     demoUrl: "https://taskapp-demo.com",
     codeUrl: "https://github.com/andremelzc/task-manager",
-    category: "Full Stack",
+    category: "Desarrollo Web",
   },
 
   // Proyectos Regulares
@@ -57,7 +57,7 @@ export const sampleProjects: Project[] = [
     technologies: ["React", "OpenWeather API", "CSS Modules"],
     demoUrl: "https://weather-app-demo.com",
     codeUrl: "https://github.com/andremelzc/weather-app",
-    category: "Frontend",
+    category: "Desarrollo Web",
   },
   {
     id: "4",
@@ -69,7 +69,7 @@ export const sampleProjects: Project[] = [
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     demoUrl: "https://andremelez.dev",
     codeUrl: "https://github.com/andremelzc/portfolio",
-    category: "Frontend",
+    category: "Desarrollo Web",
   },
   {
     id: "5",
@@ -80,7 +80,7 @@ export const sampleProjects: Project[] = [
     featured: false,
     technologies: ["Node.js", "Express", "MongoDB", "JWT", "Swagger"],
     codeUrl: "https://github.com/andremelzc/blog-api",
-    category: "Backend",
+    category: "Desarrollo Web",
   },
   {
     id: "6",
@@ -91,7 +91,7 @@ export const sampleProjects: Project[] = [
     technologies: ["JavaScript", "CSS Grid", "Local Storage"],
     demoUrl: "https://calculator-demo.com",
     codeUrl: "https://github.com/andremelzc/calculator",
-    category: "Frontend",
+    category: "Desarrollo Web",
   },
 ];
 

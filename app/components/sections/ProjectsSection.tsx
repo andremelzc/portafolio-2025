@@ -1,9 +1,10 @@
 import React from "react";
-import Button from "@/app/components/ui/Button";
-import ProjectGrid from "@/app/components/projects/ProjectGrid";
-import { sampleProjects } from "@/app/data/projects";
+import ProjectClient from "./ProjectClient";
+import { getAllProjects } from "@/app/lib/sanity";
 
-export default function ProjectsSection() {
+export default async function ProjectsSection() {
+  const projects = await getAllProjects();
+
   return (
     <section id="proyectos" className="min-h-screen px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col gap-12 sm:gap-14 md:gap-16 lg:gap-12 xl:gap-10 text-center items-center max-w-7xl mx-auto">
@@ -26,27 +27,9 @@ export default function ProjectsSection() {
               </h2>
             </div>
           </div>
-          {/* Filtros con glassmorphism sutil */}
-          <div className="relative group">
-            {/* Resplandor de fondo para los filtros */}
-            <div className="absolute -inset-2 sm:-inset-3 bg-gradient-to-r from-accent/5 via-cherry-300/5 to-accent/5 rounded-xl sm:rounded-2xl blur-xl opacity-70" />
 
-            {/* Contenedor glassmorphism principal */}
-            <div className="relative backdrop-blur-sm bg-background/10 border border-border/20 rounded-xl sm:rounded-2xl p-4  shadow-lg hover:shadow-xl transition-all duration-300">
-              {/* Borde superior brillante */}
-              <div className="absolute top-0 left-4 right-4 sm:left-6 sm:right-6 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-60" />
-
-              {/* Efecto hover sutil */}
-              <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="relative flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-4 lg:gap-4 justify-center">
-                <Button variant="outline">Desarrollo web</Button>
-                <Button variant="outline">Desarrollo móvil</Button>
-                <Button variant="outline">Otros</Button>
-              </div>
-            </div>
-          </div>
-          <ProjectGrid projects={sampleProjects} />
+          {/* Componente cliente con filtros y grid */}
+          <ProjectClient initialProjects={projects} />
         </div>
       </div>
     </section>

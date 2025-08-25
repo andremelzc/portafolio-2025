@@ -7,19 +7,32 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
   const regularProjects = projects.filter((project) => !project.featured);
   return (
     <div className="flex flex-col gap-6 sm:gap-8 lg:gap-6 w-full">
-      {/* Proyectos destacados */}
-      <div className="flex flex-col gap-6 sm:gap-8 lg:gap-6">
-        {featuredProjects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-      </div>
+      {projects.length > 0 ? (
+        <>
+          {/* Proyectos destacados */}
+          <div className="flex flex-col gap-6 sm:gap-8 lg:gap-6">
+            {featuredProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
 
-      {/* Proyectos regulares en grid responsive */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-6">
-        {regularProjects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-      </div>
+          {/* Proyectos regulares en grid responsive */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-6">
+            {regularProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        </>
+      ) : (
+        <div className="text-center py-12">
+          <h3 className="text-xl text-foreground/70 font-medium">
+            No hay proyectos en esta categoría
+          </h3>
+          <p className="text-foreground/50 mt-2">
+            Selecciona otra categoría para ver más proyectos
+          </p>
+        </div>
+      )}
     </div>
   );
 }
