@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
-import { Project } from "@/app/types/projects";
+import { Project, ProjectCategory, ProjectRole, TeamSize } from "@/app/types/projects";
 
 // Query para obtener todos los proyectos
 const projectsQuery = groq`
@@ -86,20 +86,20 @@ const skillsQuery = `*[_type == "skills"][0]{
 }`;
 
 // Función para transformar datos de Sanity al formato esperado
-function transformSanityProject(sanityProject: any): Project {
+function transformSanityProject(sanityProject: Record<string, unknown>): Project {
   return {
-    id: sanityProject._id,
-    title: sanityProject.title,
-    description: sanityProject.description,
-    primaryImage: sanityProject.primaryImage || "/test.png",
-    secondaryImage: sanityProject.secondaryImage || "/test.png",
-    featured: sanityProject.featured || false,
-    technologies: sanityProject.technologies || [],
-    demoUrl: sanityProject.demoUrl,
-    codeUrl: sanityProject.codeUrl,
-    category: sanityProject.category,
-    role: sanityProject.role,
-    teamSize: sanityProject.teamSize,
+    id: sanityProject._id as string,
+    title: sanityProject.title as string,
+    description: sanityProject.description as string,
+    primaryImage: (sanityProject.primaryImage as string) || "/test.png",
+    secondaryImage: (sanityProject.secondaryImage as string) || "/test.png",
+    featured: (sanityProject.featured as boolean) || false,
+    technologies: (sanityProject.technologies as string[]) || [],
+    demoUrl: sanityProject.demoUrl as string,
+    codeUrl: sanityProject.codeUrl as string,
+    category: sanityProject.category as ProjectCategory,
+    role: sanityProject.role as ProjectRole | undefined,
+    teamSize: sanityProject.teamSize as TeamSize | undefined,
   };
 }
 
@@ -166,9 +166,9 @@ export async function getAvailableCategories(): Promise<string[]> {
     `;
     const result = await client.fetch(categoriesQuery);
     const categories = [
-      ...new Set(result.map((item: any) => item.category).filter(Boolean)),
-    ] as string[];
-    return categories;
+      ...new Set(result.map((item: { category: string }) => item.category).filter(Boolean)),
+    ];
+    return categories as string[];
   } catch (error) {
     console.error("Error fetching categories:", error);
     return [];
