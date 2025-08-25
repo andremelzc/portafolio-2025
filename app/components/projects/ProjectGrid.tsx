@@ -1,12 +1,18 @@
 import React from "react";
 import { ProjectGridProps } from "@/app/types/projects";
 import ProjectCard from "@/app/components/projects/ProjectCard";
+import ComingSoonCard from "@/app/components/projects/ComingSoonCard";
+import Button from "../ui/Button";
 
 export default function ProjectGrid({ projects }: ProjectGridProps) {
-  const featuredProjects = projects.filter((project) => project.featured);
-  const regularProjects = projects.filter((project) => !project.featured);
+  const featuredProjects = projects
+    .filter((project) => project.featured)
+    .slice(0, 2);
+  const regularProjects = projects
+    .filter((project) => !project.featured)
+    .slice(0, 4);
   return (
-    <div className="flex flex-col gap-6 sm:gap-8 lg:gap-6 w-full">
+    <div className="flex flex-col gap-6 sm:gap-8 lg:gap-8 w-full">
       {projects.length > 0 ? (
         <>
           {/* Proyectos destacados */}
@@ -14,13 +20,24 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
             {featuredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
+            {regularProjects.length === 0 && <ComingSoonCard />}
           </div>
 
-          {/* Proyectos regulares en grid responsive */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-6">
-            {regularProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
+          {/* Proyectos regulares en grid responsive + botón */}
+          <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-8">
+              {regularProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+              {/* Por si la cantidad de proyectos regulares es impar */}
+              {regularProjects.length % 2 === 1 && <ComingSoonCard />}
+            </div>
+            {/* Botón "Ver más proyectos" solo si hay 4 regulares */}
+            {regularProjects.length === 1 && (
+              <div className="flex justify-center mt-16">
+                <Button>Ver más proyectos</Button>
+              </div>
+            )}
           </div>
         </>
       ) : (
