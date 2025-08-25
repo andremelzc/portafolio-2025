@@ -9,7 +9,6 @@ import { useNavbarShrink } from "@/app/hooks/useNavbarShrink";
 export default function Navbar() {
   const activeSection = useActiveSection();
   const {
-    isScrolled,
     isExpanded,
     handleMouseEnter,
     handleMouseLeave,

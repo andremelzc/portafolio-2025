@@ -1,7 +1,6 @@
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import { Project } from "@/app/types/projects";
-import { Skills } from "@/app/types/skills";
 
 // Query para obtener todos los proyectos
 const projectsQuery = groq`

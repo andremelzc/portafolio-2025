@@ -10,7 +10,6 @@ import {
 import TechTag from "@/app/components/ui/TechTag";
 import Button from "@/app/components/ui/Button";
 import Tooltip from "@/app/components/ui/Tooltip";
-import { goToUrl } from "@/app/lib/utils";
 
 export default function ProjectCard({
   project: {

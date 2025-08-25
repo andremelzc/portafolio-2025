@@ -29,18 +29,7 @@ export const useIndicatorPosition = (
     const navElement = navRef.current;
 
     if (activeLink && navElement) {
-      // Obtener la escala actual del nav
-      const navStyle = window.getComputedStyle(navElement);
-      const transform = navStyle.transform;
-      
-      let scale = 1;
-      if (transform && transform !== 'none') {
-        const matrix = transform.match(/matrix.*\((.+)\)/);
-        if (matrix) {
-          const values = matrix[1].split(', ');
-          scale = parseFloat(values[0]); // Primer valor es scaleX
-        }
-      }
+      // Obtener la escala actual del nav (eliminado: no se usa 'scale')
 
       // Calcular posiciones usando offsetLeft/offsetWidth (más preciso para elementos escalados)
       const left = activeLink.offsetLeft;

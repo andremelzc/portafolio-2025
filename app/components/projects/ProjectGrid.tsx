@@ -2,7 +2,6 @@ import React from "react";
 import { ProjectGridProps } from "@/app/types/projects";
 import ProjectCard from "@/app/components/projects/ProjectCard";
 import ComingSoonCard from "@/app/components/projects/ComingSoonCard";
-import Button from "../ui/Button";
 
 export default function ProjectGrid({ projects }: ProjectGridProps) {
   const featuredProjects = projects

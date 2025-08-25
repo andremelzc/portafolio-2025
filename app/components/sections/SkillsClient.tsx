@@ -5,8 +5,6 @@ import Button from "../ui/Button";
 import SkillGrid from "../skills/SkillGrid";
 import SkillGridSkeleton from "../skills/SkillGridSkeleton";
 import { Skills } from "@/app/types/skills";
-import { set } from "date-fns";
-import { el } from "date-fns/locale";
 
 interface SkillsClientProps {
   initialSkills: Skills;
