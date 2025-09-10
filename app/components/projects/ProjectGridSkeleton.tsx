@@ -11,10 +11,10 @@ export default function ProjectGridSkeleton({
   featuredCount = 2 
 }: ProjectGridSkeletonProps) {
   return (
-    <div className="flex flex-col gap-6 sm:gap-8 lg:gap-6 w-full">
+    <div className="flex flex-col gap-4 sm:gap-6 lg:gap-6 w-full">
       {/* Proyectos destacados skeleton */}
       {featuredCount > 0 && (
-        <div className="flex flex-col gap-6 sm:gap-8 lg:gap-6">
+        <div className="flex flex-col gap-4 sm:gap-6 lg:gap-6">
           {Array.from({ length: featuredCount }).map((_, index) => (
             <ProjectSkeleton key={`featured-${index}`} featured={true} />
           ))}
