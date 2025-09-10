@@ -9,7 +9,7 @@ export default function HomeSection() {
   return (
     <section
       id="home"
-      className="relative h-screen flex items-center justify-center overflow-hidden mt-14 lg:-mt-10 px-4 sm:px-6 lg:px-8"
+      className="relative h-screen flex items-center justify-center overflow-hidden mt-6 lg:-mt-10 px-4 sm:px-6 lg:px-8"
     >
       <div className="flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-8 xl:gap-6 text-center items-center max-w-6xl mx-auto w-full">
         {/* Header */}

@@ -5,10 +5,17 @@ import Link from "next/link";
 import { useActiveSection } from "@/app/hooks/useActiveSection";
 import { useIndicatorPosition } from "@/app/hooks/useIndicatorPosition";
 import { useNavbarShrink } from "@/app/hooks/useNavbarShrink";
+import { useMobileNavAutoHide } from "@/app/hooks/useMobileNavAutoHide";
 
 export default function Navbar() {
   const activeSection = useActiveSection();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Auto-hide functionality for mobile navbar
+  const { isVisible: isMobileNavVisible, showAndStartTimer } = useMobileNavAutoHide({
+    hideDelay: 10000, // 10 seconds
+    scrollThreshold: 10 // Lower threshold for better responsiveness
+  });
   
   const {
     isExpanded,
@@ -46,6 +53,8 @@ export default function Navbar() {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    // Show navbar when menu is toggled
+    showAndStartTimer();
   };
 
   const closeMobileMenu = () => {
@@ -138,7 +147,9 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navbar */}
-      <div className="md:hidden fixed top-6 right-4 z-50">
+      <div className={`md:hidden fixed top-6 right-4 z-50 transition-all duration-300 ${
+        isMobileNavVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
+      }`}>
         <button
           onClick={toggleMobileMenu}
           className="relative w-12 h-12 rounded-xl backdrop-blur-2xl border border-white/20 flex items-center justify-center transition-all duration-300 hover:scale-105"
