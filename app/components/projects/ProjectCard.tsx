@@ -25,46 +25,43 @@ export default function ProjectCard({
     teamSize,
   },
 }: ProjectCardProps) {
-  // Intercambiar imágenes si es featured
-  const mainImage = featured ? secondaryImage : primaryImage;
-  const secondary = featured ? primaryImage : secondaryImage;
+  // La imagen primaria siempre es la principal que se muestra
+  // En featured, la secundaria se muestra como segunda imagen
+  const mainImage = primaryImage;
+  const overlayImage = featured ? secondaryImage : null;
 
   return (
     <div className="group relative h-full">
-      <div className="relative bg-gradient-to-br from-midnight-800 via-midnight-900 to-midnight-800 border border-midnight-600/50 rounded-3xl shadow-2xl text-background flex flex-col w-full h-full hover:shadow-3xl transition-all duration-500 hover:border-accent/30 transform-gpu group-hover:scale-[1.02] group-hover:-translate-y-1">
+      <div className="relative bg-gradient-to-br from-midnight-800 via-midnight-900 to-midnight-800 border border-midnight-600/50 rounded-2xl md:rounded-3xl shadow-2xl text-background flex flex-col w-full h-full hover:shadow-3xl transition-all duration-500 hover:border-accent/30 transform-gpu group-hover:scale-[1.02] group-hover:-translate-y-1">
         {/* Efectos internos sutiles */}
-        <div className="absolute inset-0 bg-gradient-to-br from-foreground/10 via-transparent to-foreground/5 rounded-3xl pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-foreground/10 via-transparent to-foreground/5 rounded-2xl md:rounded-3xl pointer-events-none" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-midnight-500/40 to-transparent" />
         {/* Efecto de brillo sutil en hover */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-accent/5 via-transparent to-accent/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-accent/5 via-transparent to-accent/10 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
         {/* Header */}
-        <div className="relative flex justify-between items-center p-6 pb-4">
+        <div className="relative flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 md:p-6 pb-3 md:pb-4 gap-3 sm:gap-0">
           {/* Tecnologías */}
-          <div className="flex gap-2 flex-wrap">
-            {(featured ? technologies : technologies.slice(0, 3)).map(
+          <div className="flex gap-1.5 md:gap-2 flex-wrap">
+            {(featured ? technologies : technologies.slice(0, 2)).map(
               (tech) => (
                 <TechTag key={tech} tech={tech} variant="badge" />
               )
             )}
-            {!featured && technologies.length > 3 && (
-              <div className="bg-midnight-700/60 backdrop-blur-sm text-midnight-200 text-xs font-medium px-3 py-1.5 rounded-full border border-midnight-600/50">
-                +{technologies.length - 3}
+            {!featured && technologies.length > 2 && (
+              <div className="bg-midnight-700/60 backdrop-blur-sm text-midnight-200 text-xs font-medium px-2 md:px-3 py-1 md:py-1.5 rounded-full border border-midnight-600/50">
+                +{technologies.length - 2}
               </div>
             )}
           </div>
           {/* Teamsize Badge */}
-          <div className="bg-midnight-700/60 backdrop-blur-sm border border-midnight-600/50 text-midnight-200 text-xs font-medium px-3 py-1.5 rounded-full shadow-lg">
+          <div className="bg-midnight-700/60 backdrop-blur-sm border border-midnight-600/50 text-midnight-200 text-xs font-medium px-2 md:px-3 py-1 md:py-1.5 rounded-full shadow-lg self-end sm:self-auto">
             <Tooltip content={teamSize}>
               <span className="inline-flex">
                 {teamSize === "Solo" ? (
-                  <>
-                    <HiOutlineUser size={16} />
-                  </>
+                  <HiOutlineUser size={14} className="md:w-4 md:h-4" />
                 ) : (
-                  <>
-                    <HiOutlineUserGroup size={16} />
-                  </>
+                  <HiOutlineUserGroup size={14} className="md:w-4 md:h-4" />
                 )}
               </span>
             </Tooltip>
@@ -72,16 +69,16 @@ export default function ProjectCard({
         </div>
 
         {/* Texto siempre en la misma posición */}
-        <div className="px-6 text-left flex-shrink-0 min-h-[120px] flex flex-col justify-center">
-          <h3 className="text-2xl font-bold text-foreground line-clamp-2">
+        <div className="px-4 md:px-6 text-left flex-shrink-0 min-h-[100px] md:min-h-[120px] flex flex-col justify-center">
+          <h3 className="text-lg md:text-2xl font-bold text-foreground line-clamp-2">
             {title}
           </h3>
           <p
             className={`${
               featured
-                ? "text-lg line-clamp-4"
-                : "text-base opacity-80 line-clamp-3"
-            } leading-relaxed text-foreground/80 mt-2`}
+                ? "text-base md:text-lg line-clamp-3 md:line-clamp-4"
+                : "text-sm md:text-base opacity-80 line-clamp-2 md:line-clamp-3"
+            } leading-relaxed text-foreground/80 mt-1 md:mt-2`}
           >
             {description}
           </p>
@@ -91,15 +88,68 @@ export default function ProjectCard({
         <div
           className={`flex justify-center items-center ${
             featured
-              ? "min-h-[200px] max-h-[240px]"
-              : "min-h-[160px] max-h-[200px]"
-          } ${featured ? "p-8 pb-6" : "p-4 pb-4"}`}
+              ? "min-h-[140px] max-h-[180px] md:min-h-[200px] md:max-h-[240px]"
+              : "min-h-[120px] max-h-[160px] md:min-h-[160px] md:max-h-[200px]"
+          } ${featured ? "p-4 pb-3 md:p-8 md:pb-6" : "p-3 pb-2 md:p-4 md:pb-4"}`}
         >
-          <div className={`relative ${featured ? "w-72 h-40" : "w-64 h-32"}`}>
-            {/* Imagen principal - siempre presente */}
+          <div className={`relative ${
+            featured 
+              ? "w-48 h-24 md:w-72 md:h-40" 
+              : "w-48 h-24 md:w-64 md:h-32"
+          }`}>
+            {/* Imagen secundaria - solo en featured y solo en pantallas md+ - Se renderiza PRIMERO para estar atrás */}
+            {featured && overlayImage && (
+              <div className="absolute top-0 transform translate-x-1/4 translate-y-1/4 w-full h-full hover:scale-105 transition-transform duration-300 hidden md:block z-10">
+                <Image
+                  src={overlayImage}
+                  alt={title + " secundaria"}
+                  fill
+                  className="object-cover rounded-lg shadow-lg"
+                  sizes="(max-width: 640px) 200px, (max-width: 768px) 300px, 600px"
+                  placeholder="empty"
+                />
+                {/* Overlay para imagen secundaria */}
+                <div className="absolute inset-0 bg-background opacity-70 rounded-lg pointer-events-none"></div>
+              </div>
+            )}
+
+            {/* Placeholder para imagen secundaria si no existe pero el proyecto es featured */}
+            {featured && !overlayImage && (
+              <div className="absolute top-0 transform translate-x-1/4 translate-y-1/4 w-full h-full hover:scale-105 transition-transform duration-300 hidden md:block z-10">
+                <div className="flex items-center justify-center w-full h-full bg-midnight-700/60 rounded-lg border-2 border-dashed border-midnight-600">
+                  <svg
+                    className="w-8 h-8 md:w-16 md:h-16"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      x="8"
+                      y="16"
+                      width="48"
+                      height="32"
+                      rx="6"
+                      fill="#23283a"
+                      stroke="#3b4252"
+                      strokeWidth="2"
+                    />
+                    <circle cx="20" cy="28" r="4" fill="#3b4252" />
+                    <path
+                      d="M12 44L24 32L36 44L44 36L52 44"
+                      stroke="#4f5668"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            )}
+
+            {/* Imagen primaria - siempre presente como imagen principal - Se renderiza DESPUÉS para estar al frente */}
             <div
               className={`absolute top-0 w-full h-full hover:scale-105 transition-transform duration-300 ${
-                featured ? "transform -translate-x-1/4" : ""
+                featured ? "transform md:-translate-x-1/4 z-20" : ""
               }`}
             >
               {mainImage ? (
@@ -108,15 +158,14 @@ export default function ProjectCard({
                   alt={title}
                   fill
                   className="object-cover rounded-lg"
-                  sizes="(max-width: 768px) 100vw, 600px"
+                  sizes="(max-width: 640px) 200px, (max-width: 768px) 300px, 600px"
                   priority={featured}
                   placeholder="empty"
                 />
               ) : (
                 <div className="flex items-center justify-center w-full h-full bg-midnight-700/60 rounded-lg border-2 border-dashed border-midnight-600">
                   <svg
-                    width="64"
-                    height="64"
+                    className="w-8 h-8 md:w-16 md:h-16"
                     viewBox="0 0 64 64"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -142,72 +191,24 @@ export default function ProjectCard({
                   </svg>
                 </div>
               )}
-              {/* Overlay solo en featured */}
-              {featured && (
-                <div className="absolute inset-0 bg-background opacity-70 rounded-lg pointer-events-none"></div>
-              )}
+              {/* Sin overlay en la imagen primaria - ahora está limpia al frente */}
             </div>
-
-            {/* Imagen secundaria - solo en featured */}
-            {featured && (
-              <div className="absolute top-0 transform translate-x-1/4 translate-y-1/4 w-full h-full hover:scale-105 transition-transform duration-300">
-                {secondary ? (
-                  <Image
-                    src={secondary}
-                    alt={title + " secundaria"}
-                    fill
-                    className="object-cover rounded-lg shadow-lg"
-                    sizes="(max-width: 768px) 100vw, 600px"
-                    placeholder="empty"
-                  />
-                ) : (
-                  <div className="flex items-center justify-center w-full h-full bg-midnight-700/60 rounded-lg border-2 border-dashed border-midnight-600">
-                    <svg
-                      width="64"
-                      height="64"
-                      viewBox="0 0 64 64"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect
-                        x="8"
-                        y="16"
-                        width="48"
-                        height="32"
-                        rx="6"
-                        fill="#23283a"
-                        stroke="#3b4252"
-                        strokeWidth="2"
-                      />
-                      <circle cx="20" cy="28" r="4" fill="#3b4252" />
-                      <path
-                        d="M12 44L24 32L36 44L44 36L52 44"
-                        stroke="#4f5668"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                )}
-              </div>
-            )}
           </div>
         </div>
 
         {/* Spacer flexible CONDICIONAL - solo en featured para mejor distribución */}
-        {featured && <div className="flex-grow min-h-[20px]"></div>}
+        {featured && <div className="flex-grow min-h-[10px] md:min-h-[20px]"></div>}
 
         {/* Footer */}
         <div
-          className={`relative px-6 pb-6 flex-shrink-0 ${!featured ? "mt-4" : "mt-8"}`}
+          className={`relative px-4 md:px-6 pb-4 md:pb-6 flex-shrink-0 ${!featured ? "mt-2 md:mt-4" : "mt-4 md:mt-8"}`}
         >
           {/* Separador */}
-          <div className="h-px bg-gradient-to-r from-transparent via-midnight-600/40 to-transparent mb-6" />
+          <div className="h-px bg-gradient-to-r from-transparent via-midnight-600/40 to-transparent mb-4 md:mb-6" />
           {/* Botones e Indicador */}
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0">
             {/* Botones a la izquierda */}
-            <div className="flex gap-3">
+            <div className="flex gap-2 md:gap-3 flex-wrap">
               {demoUrl && (
                 <a
                   href={demoUrl}
@@ -219,8 +220,10 @@ export default function ProjectCard({
                     size="sm"
                     icon={<HiOutlineExternalLink />}
                     iconPosition="left"
+                    className="text-xs md:text-sm px-2 md:px-3 py-1.5 md:py-2"
                   >
-                    Ver Demo
+                    <span className="hidden xs:inline">Ver Demo</span>
+                    <span className="xs:hidden">Demo</span>
                   </Button>
                 </a>
               )}
@@ -235,8 +238,10 @@ export default function ProjectCard({
                     size="sm"
                     icon={<HiOutlineCode />}
                     iconPosition="left"
+                    className="text-xs md:text-sm px-2 md:px-3 py-1.5 md:py-2"
                   >
-                    Ver Código
+                    <span className="hidden xs:inline">Ver Código</span>
+                    <span className="xs:hidden">Código</span>
                   </Button>
                 </a>
               )}
@@ -244,7 +249,7 @@ export default function ProjectCard({
 
             {/* Indicador de role a la derecha */}
             {role ? (
-              <div className="flex items-center gap-2 text-xs text-midnight-400">
+              <div className="flex items-center gap-2 text-xs text-midnight-400 self-end sm:self-auto">
                 <div className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
                 <span className="font-medium">{role}</span>
               </div>
