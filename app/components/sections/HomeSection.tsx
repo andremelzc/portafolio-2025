@@ -11,13 +11,13 @@ export default function HomeSection() {
       id="home"
       className="relative h-screen flex items-center justify-center overflow-hidden mt-6 lg:-mt-10 px-4 sm:px-6 lg:px-8"
     >
-      <div className="flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-8 xl:gap-6 text-center items-center max-w-6xl mx-auto w-full">
+      <div className="flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-8 xl:gap-10 text-center items-center max-w-6xl mx-auto w-full">
         {/* Header */}
         <div className="flex flex-col gap-4 sm:gap-6 lg:gap-4">
           {/* Disponible para proyectos */}
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-accent/10 backdrop-blur-sm border border-accent/20 rounded-full px-3 sm:px-6 py-1.5 sm:py-2 mx-auto">
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-accent rounded-full animate-pulse" />
-            <span className="text-accent font-medium text-[10px] sm:text-sm uppercase tracking-wider">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-accent/10 backdrop-blur-md border border-accent/30 rounded-full px-3 sm:px-6 py-1.5 sm:py-2 mx-auto hover:bg-accent/15 hover:border-accent/40 transition-all duration-300 group">
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-accent rounded-full animate-pulse group-hover:animate-ping" />
+            <span className="text-accent font-medium text-[10px] sm:text-sm uppercase tracking-wider group-hover:tracking-widest transition-all duration-300">
               Disponible para proyectos
             </span>
           </div>
@@ -45,14 +45,14 @@ export default function HomeSection() {
           </div>
         </div>
 
-        <div className="relative max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-3xl mx-auto px-2 sm:px-4">
+        <div className="relative max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-3xl mx-auto px-2 sm:px-4 group">
           {/* Efecto de resplandor sutil de fondo */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/5 to-transparent rounded-2xl blur-xl" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/12 to-transparent rounded-2xl blur-xl group-hover:via-accent/18 transition-all duration-500" />
 
           {/* Contenedor glassmorphism */}
           <div className="relative">
-            <div className="backdrop-blur-sm bg-background/30 border border-border/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-              <p className="text-sm sm:text-base md:text-lg lg:text-base xl:text-lg leading-relaxed text-foreground/90">
+            <div className="backdrop-blur-md bg-background/20 border border-border/30 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-6 shadow-lg hover:shadow-xl hover:bg-background/25 transition-all duration-300 group">
+              <p className="text-sm sm:text-base md:text-lg lg:text-base xl:text-lg leading-relaxed text-foreground/90 group-hover:text-foreground/95 transition-colors duration-300">
                 Estudiante de{" "}
                 <span className="font-semibold text-accent">
                   Ingeniería de Software
@@ -60,8 +60,8 @@ export default function HomeSection() {
                 en la Universidad Nacional Mayor de San Marcos, especializado en
                 el desarrollo de aplicaciones web modernas.
               </p>
-              <div className="h-px w-16 sm:w-20 md:w-24 lg:w-20 bg-gradient-to-r from-transparent via-accent/40 to-transparent mx-auto mt-3 sm:mt-4 lg:mt-3" />
-              <p className="mt-3 sm:mt-4 lg:mt-3 text-sm sm:text-base lg:text-sm xl:text-base text-foreground/70">
+              <div className="h-px w-16 sm:w-20 md:w-24 lg:w-20 bg-gradient-to-r from-transparent via-accent/50 to-transparent mx-auto mt-3 sm:mt-4 lg:mt-3 group-hover:via-accent/70 transition-all duration-300" />
+              <p className="mt-3 sm:mt-4 lg:mt-3 text-sm sm:text-base lg:text-sm xl:text-base text-foreground/70 group-hover:text-foreground/80 transition-colors duration-300">
                 Enfocado en crear impacto a través de la tecnología y participar
                 en proyectos innovadores.
               </p>
