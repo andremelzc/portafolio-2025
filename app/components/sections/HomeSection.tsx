@@ -9,15 +9,15 @@ export default function HomeSection() {
   return (
     <section
       id="home"
-      className="relative h-screen flex items-center justify-center overflow-hidden lg:-mt-10 px-4 sm:px-6 lg:px-8"
+      className="relative h-screen flex items-center justify-center overflow-hidden mt-14 lg:-mt-10 px-4 sm:px-6 lg:px-8"
     >
       <div className="flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-8 xl:gap-6 text-center items-center max-w-6xl mx-auto w-full">
         {/* Header */}
         <div className="flex flex-col gap-4 sm:gap-6 lg:gap-4">
           {/* Disponible para proyectos */}
-          <div className="inline-flex items-center gap-2 bg-accent/10 backdrop-blur-sm border border-accent/20 rounded-full px-4 sm:px-6 py-2 mx-auto">
-            <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-            <span className="text-accent font-medium text-xs sm:text-sm uppercase tracking-wider">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-accent/10 backdrop-blur-sm border border-accent/20 rounded-full px-3 sm:px-6 py-1.5 sm:py-2 mx-auto">
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-accent rounded-full animate-pulse" />
+            <span className="text-accent font-medium text-[10px] sm:text-sm uppercase tracking-wider">
               Disponible para proyectos
             </span>
           </div>

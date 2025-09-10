@@ -138,7 +138,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navbar */}
-      <div className="md:hidden fixed top-6 right-6 z-50">
+      <div className="md:hidden fixed top-6 right-4 z-50">
         <button
           onClick={toggleMobileMenu}
           className="relative w-12 h-12 rounded-xl backdrop-blur-2xl border border-white/20 flex items-center justify-center transition-all duration-300 hover:scale-105"
